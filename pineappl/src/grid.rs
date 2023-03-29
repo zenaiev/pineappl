@@ -574,13 +574,29 @@ impl Grid {
                     });
 
                 if order.logxir > 0 {
+                    // SZ
                     value *= (xir * xir).ln().powi(order.logxir.try_into().unwrap());
+                    //let mut factor = (xir * xir).ln().powi(order.logxir.try_into().unwrap());
+                    //if self.key_values().unwrap().contains_key("with_power") {
+                    //    factor = factor.powi(self.key_values().unwrap().get("with_power").unwrap().parse::<i32>().unwrap());
+                    //}
+                    //value *= factor
                 }
 
                 if order.logxif > 0 {
+                    // SZ
                     value *= (xif * xif).ln().powi(order.logxif.try_into().unwrap());
+                    //let mut factor = (xif * xif).ln().powi(order.logxif.try_into().unwrap());
+                    //if self.key_values().unwrap().contains_key("with_power") {
+                    //    factor = factor.powi(self.key_values().unwrap().get("with_power").unwrap().parse::<i32>().unwrap());
+                    //}
+                    //value *= factor
                 }
-
+                
+                // SZ
+                //if self.key_values().unwrap().contains_key("with_power") {
+                //    value = value.powi(self.key_values().unwrap().get("with_power").unwrap().parse::<i32>().unwrap());
+                //}
                 bins[xi_index + xi.len() * bin_index] += value / normalizations[bin];
             }
         }
