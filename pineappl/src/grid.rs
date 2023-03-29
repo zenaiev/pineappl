@@ -566,6 +566,10 @@ impl Grid {
                         let alphas = lumi_cache.alphas(imu2);
 
                         lumi *= alphas.powi(order.alphas.try_into().unwrap());
+                        // SZ
+                        if self.key_values().unwrap().contains_key("with_power") {
+                            lumi = lumi.powi(self.key_values().unwrap().get("with_power").unwrap().parse::<i32>().unwrap());
+                        }
                         lumi
                     });
 
